@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef __INTELLISENSE_H__
-#define __INTELLISENSE_H__
+#ifndef __GBA_MACROS_H__
+#define __GBA_MACROS_H__
 
 #if __INTELLISENSE__
 #define __attribute__(q)
@@ -13,4 +13,13 @@
 #define __extension__
 #endif
 
-#endif //__INTELLISENSE_H__
+#if defined(_MSC_VER)
+#include <BaseTsd.h>
+typedef SSIZE_T ssize_t;
+#endif
+
+#ifndef NULL
+#define NULL (void *) 0
+#endif
+
+#endif //__GBA_MACROS_H__
