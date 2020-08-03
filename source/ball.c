@@ -24,13 +24,13 @@ void moveBall(Ball* ball) {
 	// Bounce off top
 	if (ball->y < 0) {
 		ball->y = 0;
-		ball->dy *= -1;
+		verticalBounce(ball);
 	}
 
 	// Bounce off bottom
 	if (ball->y > SCREEN_H - ball->size) {
 		ball->y = SCREEN_H - ball->size;
-		ball->dy *= -1;
+		verticalBounce(ball);
 	}
 
 	ball->x += ball->dx;

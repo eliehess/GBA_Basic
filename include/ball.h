@@ -37,4 +37,18 @@ extern void drawBall(Ball* ball);
  */
 extern void clearBall(Ball* ball);
 
+/*
+ * Reverses a ball's dy
+ */
+static inline void verticalBounce(Ball* ball) {
+	ball->dy *= -1;
+}
+
+/*
+ * Reverses a ball's dx
+ */
+static inline void horizontalBounce(Ball* ball) {
+	ball->dx *= -1;
+}
+
 #endif //__BALL_H__

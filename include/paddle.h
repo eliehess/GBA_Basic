@@ -27,4 +27,9 @@ extern void drawPaddle(Paddle* paddle);
  */
 extern void clearPaddle(Paddle* paddle);
 
+/*
+ * Moves a paddle vertically by the specified amount
+ */
+extern void movePaddle(Paddle* paddle, s32 val);
+
 #endif //__PADDLE_H__
