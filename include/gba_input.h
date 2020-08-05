@@ -22,6 +22,7 @@ typedef enum KEYS {
 	DOWN    = (1 << 7),
 	R       = (1 << 8),
 	L       = (1 << 9),
+	// 10-15 unused
 
 	KEYIRQ_ENABLE   = (1 << 14),	/*!< Enable keypad interrupt */
 	KEYIRQ_OR       = (0 << 15),	/*!< interrupt logical OR mode */
@@ -56,20 +57,20 @@ static inline u16 keyUp(u16 key) {
     return ~currentKeys & key; 
 }
 
-static inline u16 keyHeld(u16 a_key) { 
-    return (currentKeys & prevKeys) & a_key; 
+static inline u16 keyHeld(u16 key) { 
+    return (currentKeys & prevKeys) & key; 
 }
 
-static inline u16 keyReleased(u16 a_key) { 
-    return (~currentKeys & prevKeys) & a_key; 
+static inline u16 keyReleased(u16 key) { 
+    return (~currentKeys & prevKeys) & key; 
 }
 
-static inline u16 keyHit(u16 a_key) { 
-    return (currentKeys & ~prevKeys) & a_key; 
+static inline u16 keyHit(u16 key) { 
+    return (currentKeys & ~prevKeys) & key; 
 }
 
-static inline u16 keyStateChange(u16 a_key) {
-     return (currentKeys ^ prevKeys) & a_key; 
+static inline u16 keyStateChange(u16 key) {
+     return (currentKeys ^ prevKeys) & key; 
 }
 
 static inline s16 getAxis(AXIS val) {

@@ -3,6 +3,7 @@
 #include "gba_gfx.h"
 #include "gba_drawing.h"
 #include "gba_input.h"
+#include "gba_bios.h"
 
 #include "ball.h"
 #include "paddle.h"
@@ -16,6 +17,8 @@ int main() {
 	//set GBA rendering context to MODE 3 Bitmap Rendering
 	REG_DISPLAY_CONTROLLER = VIDEO_MODE_3 | BG_MODE_2;
 
+	registerVBlankIsr();
+
 	Ball ball;
 	initBall(&ball, SCREEN_W / 2, SCREEN_H / 2, 10, getColor(31, 31, 31));
 
@@ -26,7 +29,7 @@ int main() {
 	initPaddle(&paddle2, SCREEN_W - 10 - PADDLE_WIDTH, 60, PADDLE_WIDTH, PADDLE_HEIGHT, getColor(31, 0, 0));
 
 	while (1) {
-		vsync();
+		vBlankIntrWait();
 		pollKeys();
 
 		clearBall(&ball);

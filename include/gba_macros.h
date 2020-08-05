@@ -22,4 +22,7 @@ typedef SSIZE_T ssize_t;
 #define NULL (void *) 0
 #endif
 
+#define ARM __attribute__((__target__("arm")))
+#define THUMB __attribute__((__target__("thumb")))
+
 #endif //__GBA_MACROS_H__
