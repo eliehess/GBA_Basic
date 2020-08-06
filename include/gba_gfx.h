@@ -22,7 +22,9 @@
 #define BG_MODE_3	0x0800
 
 // vcount is used for testing for vertical blank
-#define REG_VCOUNT (*(vu16*) (REG_BASE + 0x06))
+#define REG_VCOUNT  (*(vu16*) (REG_BASE + 0x06))
+
+#define MEM_PALETTE	((u16*) 0x05000000)  
 
 /*
  * Sychronizes drawing

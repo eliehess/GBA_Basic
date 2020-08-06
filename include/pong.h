@@ -4,6 +4,12 @@
 #include "ball.h"
 #include "paddle.h"
 
+#define PADDLE_VELOCITY 2 // 2px per frame
+#define PADDLE_HEIGHT 40
+#define PADDLE_WIDTH 8
+
+extern void pong();
+
 static inline bool overlapping(Ball* ball, Paddle* paddle) {
 	return (ball->x + ball->size) >= paddle->x &&
 		ball->x <= (paddle->x + paddle->width) &&
