@@ -1,8 +1,11 @@
 #include "pong.h"
 #include "bitmap.h"
+#include "mario.h"
 
 int main() {
-	bitmap();
+	mario();
+
+	//bitmap();
 
 	//pong();
 
